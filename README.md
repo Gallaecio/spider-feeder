@@ -36,9 +36,9 @@ SPIDERFEEDER_INPUT_URI = './urls.txt'
 
 And run the spider `scrapy crawl myspider.com`
 
-Once the URLs were loaded, the total count will be stored in a stats 
-`spider_feeder/<spider.name>/url_count`.
-This value is simply `len(spider.start_urls)`.
+Once the URLs are loaded, the total count will be stored in a stat called
+`spider_feeder/<spider.name>/url_count` whose value is
+`len(spider.start_urls)`.
 
 ## Usage (csv/json)
 
@@ -60,7 +60,7 @@ SPIDERFEEDER_INPUT_URI = './urls.csv'
 SPIDERFEEDER_INPUT_FIELD = 'input_url'
 ```
 
-The same applies for `json`, just requiring to update the file extension to `.json` instead of `.csv`.
+The same applies for `json`, but it requires to update the file extension to `.json` instead of `.csv`.
 This means that the input file format is inferred from the given file extension.
 
 If you need the extra fields in the input files, you can write `start_requests` to get them.
@@ -111,7 +111,7 @@ it will fall back to the file extension in `SPIDERFEEDER_INPUT_URI`.
 
 `SPIDERFEEDER_FILE_HANDLERS` is a set of functions to be matched with the given file scheme.
 You can set your own and it'll be merged with the default one.
-The interface is just a plain function with three arguments `file_uri`, `encoding` and `settings`.
+The interface is a function with three arguments: `file_uri`, `encoding` and `settings`.
 ```
 # settings.py
 SPIDERFEEDER_FILE_HANDLERS = {
